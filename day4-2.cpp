@@ -4,14 +4,9 @@
 
 bool noDecreasingDigits(std::string num)
 {
-    return num[0] <= num[1] && num[1] <= num[2] && num[2] <= num[3] &&
-           num[3] <= num[4] && num[4] <= num[5];
-}
-
-bool adjDigitsAreSame(std::string num)
-{
-    return num[0] == num[1] || num[1] == num[2] || num[2] == num[3] ||
-           num[3] == num[4] || num[4] == num[5];
+    std::string orig{num};
+    std::sort(num.begin(), num.end());
+    return num == orig;
 }
 
 bool repeatingGroupLengthTwo(std::string num)
@@ -37,8 +32,7 @@ int main()
 
     for (int i = range_begin; i <= range_end; ++i) {
         tmp = std::to_string(i);
-        if (noDecreasingDigits(tmp) && adjDigitsAreSame(tmp) &&
-            repeatingGroupLengthTwo(tmp)) {
+        if (noDecreasingDigits(tmp) && repeatingGroupLengthTwo(tmp)) {
             passwords.push_back(tmp);
         }
     }
