@@ -1,5 +1,4 @@
 #include <fstream>
-#include <iostream>
 #include <tuple>
 #include <vector>
 
@@ -41,8 +40,6 @@ int main()
     while (ip < program.size()) {
         auto [mode_third, mode_second, mode_first, op] =
             getModeAndOpcode(program[ip]);
-
-        // std::cout << op << std::endl;
 
         if (op == 1) {
             program[program[ip + 3]] = getArgument(program, ip, 1, mode_first) +
