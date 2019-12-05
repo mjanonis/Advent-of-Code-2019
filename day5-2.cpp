@@ -58,7 +58,7 @@ int main()
             ip += 2;
         }
         else if (op == 4) {
-            output << program[program[ip + 1]] << std::endl;
+            output << getArgument(program, ip, 1, mode_first) << std::endl;
             ip += 2;
         }
         else if (op == 5) {
