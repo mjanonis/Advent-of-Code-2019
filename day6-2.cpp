@@ -7,8 +7,6 @@ int main()
     std::ifstream input{"day6.in"};
     std::ofstream output{"day6-2.out"};
 
-    std::map<std::string, std::set<std::string>> orbitedBy;
-    std::map<std::string, int> orbitCount;
     std::map<std::string, std::string> dirOrbits;
     std::map<std::string, bool> visited;
     std::string tmp;
@@ -16,15 +14,8 @@ int main()
     int dist = 0;
 
     while (std::getline(input, tmp)) {
-        orbitedBy[tmp.substr(0, tmp.find(')'))].insert(
-            tmp.substr(tmp.find(')') + 1, tmp.size()));
-    }
-
-    // get direct orbits
-    for (auto x : orbitedBy) {
-        for (auto pl : x.second) {
-            dirOrbits[pl] = x.first;
-        }
+        dirOrbits[tmp.substr(tmp.find(')') + 1, tmp.size())] =
+            tmp.substr(0, tmp.find(')'));
     }
 
     // find the lowest common ancestor node
