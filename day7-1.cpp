@@ -125,7 +125,7 @@ int main()
             program = orig_program;
         }
         ctr = 0;
-        if(inpt > max_thrust){
+        if (inpt > max_thrust) {
             max_thrust = inpt;
         }
         inpt = 0;
