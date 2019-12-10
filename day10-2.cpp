@@ -146,7 +146,6 @@ int main()
     laser.dir = std::make_pair(0, -1);
 
     int no_removed_asteroids = 0;
-    int to_delete = 0;
     std::vector<Ray> visible_from_station;
     std::pair<int, int> asteroid_coord;
 
