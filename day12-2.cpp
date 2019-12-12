@@ -3,6 +3,7 @@
 #include <set>
 #include <tuple>
 #include <vector>
+#include <numeric>
 
 // Using tuples was a mistake
 
@@ -76,13 +77,6 @@ int getKineticEnergy(Moon& m)
            abs(std::get<2>(m.vel));
 }
 
-long long int gcd(long long int a, long long int b)
-{
-    if (b == 0) {
-        return a;
-    }
-    return gcd(b, a % b);
-}
 int main()
 {
     std::ifstream input{"day12.in"};
@@ -138,8 +132,7 @@ int main()
     }
 
     long long int result = 0;
-    result =
-        (axis_period[0] * axis_period[1]) / gcd(axis_period[0], axis_period[1]);
-    result = (result * axis_period[2]) / gcd(result, axis_period[2]);
+    result = std::lcm(axis_period[0], axis_period[1]);
+    result = std::lcm(result, axis_period[2]);
     output << result;
 }
