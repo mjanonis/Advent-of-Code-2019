@@ -52,7 +52,7 @@ int main()
                 continue;
             }
             int times =
-                std::ceil(float(kv.second) / rev_reaction[kv.first].second);
+                std::ceil(static_cast<float>(kv.second) / rev_reaction[kv.first].second);
             for (auto react : rev_reaction[kv.first].first) {
                 end = false;
                 require[react.second] += times * react.first;

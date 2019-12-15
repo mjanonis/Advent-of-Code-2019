@@ -22,7 +22,7 @@ long long int oreRequirement(
                 continue;
             }
             long long int times =
-                std::ceil(double(kv.second) / rev_reaction[kv.first].second);
+                std::ceil(static_cast<double>(kv.second) / rev_reaction[kv.first].second);
             for (auto react : rev_reaction[kv.first].first) {
                 end = false;
                 require[react.second] += times * react.first;
